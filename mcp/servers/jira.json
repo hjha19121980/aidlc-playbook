@@ -1,0 +1,16 @@
+{
+  "name": "jira",
+  "title": "Jira",
+  "description": "Read tickets to seed intent.md, link artifacts to ticket IDs, and write status back so the ticket and the repository agree.",
+  "stages": ["plan", "build", "deploy", "maintain"],
+  "transport": "stdio",
+  "command": "uvx",
+  "args": ["mcp-atlassian"],
+  "vars": [
+    { "name": "JIRA_URL", "secret": false, "description": "Your Jira base URL, for example https://your-company.atlassian.net" },
+    { "name": "JIRA_USERNAME", "secret": false, "description": "Account email used with the API token" },
+    { "name": "JIRA_API_TOKEN", "secret": true, "description": "API token with the least privilege needed (read-only first)" }
+  ],
+  "access": "Start read-only. Enable write (comment, transition, create) only for the stages and projects that need it, and confirm each write.",
+  "notes": "Uses a community Atlassian server that enables Jira when the JIRA variables are set. Your organization may prefer Atlassian's own hosted server with single sign-on; if so, replace this entry using the company template. Verify before rollout."
+}

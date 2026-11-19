@@ -1,0 +1,39 @@
+<header class="top">
+  <div class="container bar">
+    <a class="brand" routerLink="/introduction" aria-label="Capgemini AIDLC Playbook home">
+      <img class="org-logo" src="assets/images/capg_logo.webp" alt="Capgemini" width="40" height="40" />
+      <span>AIDLC <b>Playbook</b></span>
+    </a>
+
+    <nav class="tabs" [class.open]="menuOpen()" aria-label="Main">
+      @for (t of tabs; track t.path) {
+        <a [routerLink]="'/' + t.path" routerLinkActive="active" (click)="menuOpen.set(false)">
+          <app-icon [name]="t.icon" />
+          {{ t.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="actions">
+      <button type="button" class="icon-btn" (click)="themeService.toggle()"
+        [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light blue theme' : 'Switch to dark blue theme'">
+        <app-icon [name]="themeService.theme() === 'dark' ? 'sun' : 'moon'" />
+      </button>
+      <button type="button" class="icon-btn menu" (click)="menuOpen.set(!menuOpen())"
+        [attr.aria-expanded]="menuOpen()" aria-label="Toggle menu">
+        <app-icon [name]="menuOpen() ? 'x' : 'menu'" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <span>AIDLC Playbook, {{ year }}</span>
+    <span class="muted">AI-assisted content must be reviewed by a human before it is shared externally.</span>
+  </div>
+</footer>

@@ -1,0 +1,11 @@
+{
+  "name": "figma",
+  "title": "Figma",
+  "description": "Read design context (frames, components, tokens) so specs and UI work follow the approved design, and compare results to the mock.",
+  "stages": ["design", "build", "test"],
+  "transport": "http",
+  "url": "https://mcp.figma.com/mcp",
+  "vars": [],
+  "access": "Read design context. Sign in through your identity provider when the assistant prompts; no token is stored in the repository.",
+  "notes": "Hosted server. Confirm the current endpoint, plan requirements, and data-handling terms with Figma and your security team. A desktop-app local endpoint also exists; use whichever your policy allows."
+}

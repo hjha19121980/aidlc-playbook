@@ -1,0 +1,12 @@
+{
+  "name": "git",
+  "title": "Git",
+  "description": "Local repository operations: status, diff, log, branch, commit. Complements the git skills and the hosting CLI.",
+  "stages": ["build", "test", "deploy"],
+  "transport": "stdio",
+  "command": "uvx",
+  "args": ["mcp-server-git"],
+  "vars": [],
+  "access": "Local repository only. Pushing and pull request actions stay with the git skills and your hosting CLI, behind confirmation.",
+  "notes": "Needs the uv tool installed (provides uvx). Verify the package with your security team before rollout."
+}

@@ -1,0 +1,11 @@
+{
+  "name": "add-status-endpoint",
+  "source": "recent change <id>",
+  "prompt": "Add a read-only status endpoint behind existing authentication, following the project's conventions.",
+  "checks": [
+    "make test",
+    "make lint",
+    "git diff --name-only | grep -q 'tests/'"
+  ],
+  "policy_followed": ["secure-api-review"]
+}

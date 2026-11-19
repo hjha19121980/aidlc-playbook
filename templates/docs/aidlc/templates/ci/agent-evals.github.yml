@@ -1,0 +1,23 @@
+# GitHub Actions: run the eval suite when agent configuration changes and on a schedule.
+# Copy to .github/workflows/agent-evals.yml and set AGENT_CMD to your agent's non-interactive command.
+name: Agent evals
+on:
+  pull_request:
+    paths: ['AGENTS.md', 'REVIEW.md', '.github/skills/**', '.github/agents/**', '.github/prompts/**', 'evals/**']
+  schedule:
+    - cron: '0 2 * * *'
+
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Install your agent CLI here, with credentials from repository secrets (never in the repo).
+      - name: Run eval suite
+        env:
+          AGENT_CMD: ${{ vars.AGENT_CMD }}   # for example: your-agent --non-interactive --prompt
+        run: |
+          set -e
+          for eval in evals/*.json; do
+            bash evals/check.sh "$eval"
+          done

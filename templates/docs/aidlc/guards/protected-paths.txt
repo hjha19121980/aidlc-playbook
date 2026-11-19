@@ -1,0 +1,6 @@
+# One path prefix per line. A change touching these needs an approval label on the pull request.
+# Lines starting with # are ignored.
+# src/gen/
+# migrations/
+# infra/
+# legacy/v1/

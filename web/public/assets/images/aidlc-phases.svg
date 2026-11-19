@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="t d" font-family="'Segoe UI Variable', 'Segoe UI', Inter, Roboto, Arial, sans-serif">
+  <title id="t">AI-Driven Development Life Cycle</title>
+  <desc id="d">Six phases in a cycle: Plan, Design, Build, Test, Deploy and Maintain. Each ends with a human approval gate, and Maintain feeds the next Plan.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050c1d"/><stop offset="1" stop-color="#0a1a3d"/></linearGradient>
+    <radialGradient id="g1" cx="0.88" cy="0.05" r="0.6"><stop offset="0" stop-color="#5b9bff" stop-opacity="0.28"/><stop offset="1" stop-color="#5b9bff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="0.05" cy="0.95" r="0.55"><stop offset="0" stop-color="#2ad4ff" stop-opacity="0.2"/><stop offset="1" stop-color="#2ad4ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1d40"/><stop offset="1" stop-color="#0b1733"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ad4ff"/><stop offset="1" stop-color="#5b9bff"/></linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ad4ff"/><stop offset="1" stop-color="#1f5eff"/></linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8ec1ff"/><stop offset="1" stop-color="#2ad4ff"/></linearGradient>
+    <style>
+      .flow { stroke: #5b9bff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 8; animation: dash 0.9s linear infinite; }
+      .flow.back { stroke: #2ad4ff; }
+      @keyframes dash { to { stroke-dashoffset: -16; } }
+      @media (prefers-reduced-motion: reduce) { .flow { animation: none; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#g1)"/>
+  <rect width="1200" height="900" fill="url(#g2)"/>
+
+  <text x="600" y="78" text-anchor="middle" font-size="46" font-weight="800" fill="url(#title)" letter-spacing="-1">AI-Driven Development Life Cycle</text>
+  <text x="600" y="118" text-anchor="middle" font-size="21" fill="#93a8d1">Six phases. A human approval gate at the end of each one.</text>
+
+  <path class="flow" d="M408 270 L439.0 270.0" fill="none"/>
+    <path d="M452 270 L439.0 278.0 L439.0 262.0 Z" fill="#5b9bff"/>
+  <path class="flow" d="M768 270 L799.0 270.0" fill="none"/>
+    <path d="M812 270 L799.0 278.0 L799.0 262.0 Z" fill="#5b9bff"/>
+  <path class="flow" d="M970 378 L970.0 479.0" fill="none"/>
+    <path d="M970 492 L962.0 479.0 L978.0 479.0 Z" fill="#5b9bff"/>
+  <path class="flow" d="M812 600 L781.0 600.0" fill="none"/>
+    <path d="M768 600 L781.0 592.0 L781.0 608.0 Z" fill="#5b9bff"/>
+  <path class="flow" d="M452 600 L421.0 600.0" fill="none"/>
+    <path d="M408 600 L421.0 592.0 L421.0 608.0 Z" fill="#5b9bff"/>
+  <path class="flow back" d="M92 600 H52 V270 H76" fill="none"/>
+    <path d="M92 270 L79 262 L79 278 Z" fill="#2ad4ff"/>
+    <text transform="translate(34 435) rotate(-90)" text-anchor="middle" font-size="15" font-weight="650" fill="#8ec1ff">Feedback returns to the next Plan</text>
+  
+  <g>
+    <rect x="100" y="170" width="300" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="100" y="170" width="300" height="200" rx="22" fill="none" stroke="url(#edge)" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="136" cy="208" r="17" fill="url(#brand)"/>
+    <text x="136" y="214" text-anchor="middle" font-size="17" font-weight="800" fill="#04112b">1</text>
+    <text x="164" y="218" font-size="29" font-weight="750" fill="#e8f0ff" letter-spacing="-0.5">Plan</text>
+    <rect x="332" y="188" width="52" height="52" rx="15" fill="url(#brand)"/>
+    <g transform="translate(340 196) scale(1.5)" stroke="#04112b" stroke-width="1.8"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M15.5 8.5l-2 5-5 2 2-5z" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="124" y="270" font-size="16.5" fill="#93a8d1">Agree what to build and why</text>
+    <rect x="124" y="286" width="124" height="30" rx="15" fill="#5b9bff" fill-opacity="0.14" stroke="#5b9bff" stroke-opacity="0.45"/>
+    <text x="141" y="306" font-size="14" font-family="Cascadia Code, Consolas, monospace" fill="#8ec1ff">/aidlc-plan</text>
+    <g transform="translate(122 328) scale(0.9)" stroke="#3ddc97" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="150" y="346" font-size="14.5" font-weight="650" fill="#3ddc97">Gate: Requirements approved</text>
+  </g>
+  <g>
+    <rect x="460" y="170" width="300" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="460" y="170" width="300" height="200" rx="22" fill="none" stroke="url(#edge)" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="496" cy="208" r="17" fill="url(#brand)"/>
+    <text x="496" y="214" text-anchor="middle" font-size="17" font-weight="800" fill="#04112b">2</text>
+    <text x="524" y="218" font-size="29" font-weight="750" fill="#e8f0ff" letter-spacing="-0.5">Design</text>
+    <rect x="692" y="188" width="52" height="52" rx="15" fill="url(#brand)"/>
+    <g transform="translate(700 196) scale(1.5)" stroke="#04112b" stroke-width="1.8"><path d="M4 20l1-5L16 4l4 4L9 19z" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M14 6l4 4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="484" y="270" font-size="16.5" fill="#93a8d1">Decide how it will work</text>
+    <rect x="484" y="286" width="142" height="30" rx="15" fill="#5b9bff" fill-opacity="0.14" stroke="#5b9bff" stroke-opacity="0.45"/>
+    <text x="501" y="306" font-size="14" font-family="Cascadia Code, Consolas, monospace" fill="#8ec1ff">/aidlc-design</text>
+    <g transform="translate(482 328) scale(0.9)" stroke="#3ddc97" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="510" y="346" font-size="14.5" font-weight="650" fill="#3ddc97">Gate: Design and tasks approved</text>
+  </g>
+  <g>
+    <rect x="820" y="170" width="300" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="820" y="170" width="300" height="200" rx="22" fill="none" stroke="url(#edge)" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="856" cy="208" r="17" fill="url(#brand)"/>
+    <text x="856" y="214" text-anchor="middle" font-size="17" font-weight="800" fill="#04112b">3</text>
+    <text x="884" y="218" font-size="29" font-weight="750" fill="#e8f0ff" letter-spacing="-0.5">Build</text>
+    <rect x="1052" y="188" width="52" height="52" rx="15" fill="url(#brand)"/>
+    <g transform="translate(1060 196) scale(1.5)" stroke="#04112b" stroke-width="1.8"><path d="M8 7l-5 5 5 5" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M16 7l5 5-5 5" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M14 4l-4 16" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="844" y="270" font-size="16.5" fill="#93a8d1">Implement in small steps</text>
+    <rect x="844" y="286" width="133" height="30" rx="15" fill="#5b9bff" fill-opacity="0.14" stroke="#5b9bff" stroke-opacity="0.45"/>
+    <text x="861" y="306" font-size="14" font-family="Cascadia Code, Consolas, monospace" fill="#8ec1ff">/aidlc-build</text>
+    <g transform="translate(842 328) scale(0.9)" stroke="#3ddc97" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="870" y="346" font-size="14.5" font-weight="650" fill="#3ddc97">Gate: All tasks merged</text>
+  </g>
+  <g>
+    <rect x="820" y="500" width="300" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="820" y="500" width="300" height="200" rx="22" fill="none" stroke="url(#edge)" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="856" cy="538" r="17" fill="url(#brand)"/>
+    <text x="856" y="544" text-anchor="middle" font-size="17" font-weight="800" fill="#04112b">4</text>
+    <text x="884" y="548" font-size="29" font-weight="750" fill="#e8f0ff" letter-spacing="-0.5">Test</text>
+    <rect x="1052" y="518" width="52" height="52" rx="15" fill="url(#brand)"/>
+    <g transform="translate(1060 526) scale(1.5)" stroke="#04112b" stroke-width="1.8"><path d="M9 3h6" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M10 3v6L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-10V3" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M7 15h10" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="844" y="600" font-size="16.5" fill="#93a8d1">Prove it meets the requirements</text>
+    <rect x="844" y="616" width="124" height="30" rx="15" fill="#5b9bff" fill-opacity="0.14" stroke="#5b9bff" stroke-opacity="0.45"/>
+    <text x="861" y="636" font-size="14" font-family="Cascadia Code, Consolas, monospace" fill="#8ec1ff">/aidlc-test</text>
+    <g transform="translate(842 658) scale(0.9)" stroke="#3ddc97" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="870" y="676" font-size="14.5" font-weight="650" fill="#3ddc97">Gate: Test report approved</text>
+  </g>
+  <g>
+    <rect x="460" y="500" width="300" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="460" y="500" width="300" height="200" rx="22" fill="none" stroke="url(#edge)" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="496" cy="538" r="17" fill="url(#brand)"/>
+    <text x="496" y="544" text-anchor="middle" font-size="17" font-weight="800" fill="#04112b">5</text>
+    <text x="524" y="548" font-size="29" font-weight="750" fill="#e8f0ff" letter-spacing="-0.5">Deploy</text>
+    <rect x="692" y="518" width="52" height="52" rx="15" fill="url(#brand)"/>
+    <g transform="translate(700 526) scale(1.5)" stroke="#04112b" stroke-width="1.8"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M12 11v8" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 14l3-3 3 3" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="484" y="600" font-size="16.5" fill="#93a8d1">Release safely, with a way back</text>
+    <rect x="484" y="616" width="142" height="30" rx="15" fill="#5b9bff" fill-opacity="0.14" stroke="#5b9bff" stroke-opacity="0.45"/>
+    <text x="501" y="636" font-size="14" font-family="Cascadia Code, Consolas, monospace" fill="#8ec1ff">/aidlc-deploy</text>
+    <g transform="translate(482 658) scale(0.9)" stroke="#3ddc97" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="510" y="676" font-size="14.5" font-weight="650" fill="#3ddc97">Gate: Production approval</text>
+  </g>
+  <g>
+    <rect x="100" y="500" width="300" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="100" y="500" width="300" height="200" rx="22" fill="none" stroke="url(#edge)" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="136" cy="538" r="17" fill="url(#brand)"/>
+    <text x="136" y="544" text-anchor="middle" font-size="17" font-weight="800" fill="#04112b">6</text>
+    <text x="164" y="548" font-size="29" font-weight="750" fill="#e8f0ff" letter-spacing="-0.5">Maintain</text>
+    <rect x="332" y="518" width="52" height="52" rx="15" fill="url(#brand)"/>
+    <g transform="translate(340 526) scale(1.5)" stroke="#04112b" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="124" y="600" font-size="16.5" fill="#93a8d1">Keep it healthy and learn</text>
+    <rect x="124" y="616" width="160" height="30" rx="15" fill="#5b9bff" fill-opacity="0.14" stroke="#5b9bff" stroke-opacity="0.45"/>
+    <text x="141" y="636" font-size="14" font-family="Cascadia Code, Consolas, monospace" fill="#8ec1ff">/aidlc-maintain</text>
+    <g transform="translate(122 658) scale(0.9)" stroke="#3ddc97" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <text x="150" y="676" font-size="14.5" font-weight="650" fill="#3ddc97">Gate: Feeds the next Plan</text>
+  </g>
+
+  <text x="600" y="785" text-anchor="middle" font-size="19" font-weight="650" fill="#e8f0ff">Run <tspan font-family="Cascadia Code, Consolas, monospace" fill="#8ec1ff">/aidlc-workflow</tspan> to find your current phase</text>
+  <text x="600" y="818" text-anchor="middle" font-size="16" fill="#93a8d1">Skills and agents for AI coding assistants</text>
+</svg>

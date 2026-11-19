@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="t d" font-family="'Segoe UI Variable', 'Segoe UI', Inter, Roboto, Arial, sans-serif">
+  <title id="t">Get started in four steps</title>
+  <desc id="d">A staircase of four steps rising to a rocket: download the skills, sign in to Git, run aidlc-workflow, then plan, review and approve.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050c1d"/><stop offset="1" stop-color="#0a1a3d"/></linearGradient>
+    <radialGradient id="g1" cx="0.9" cy="0.0" r="0.7"><stop offset="0" stop-color="#5b9bff" stop-opacity="0.28"/><stop offset="1" stop-color="#5b9bff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="0.05" cy="1" r="0.6"><stop offset="0" stop-color="#2ad4ff" stop-opacity="0.2"/><stop offset="1" stop-color="#2ad4ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1d40"/><stop offset="1" stop-color="#0b1733"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ad4ff"/><stop offset="1" stop-color="#5b9bff"/></linearGradient>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#5b9bff" fill-opacity="0.16"/></pattern>
+    <style>
+      .flow { fill: none; stroke: #5b9bff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 8; animation: dash 0.9s linear infinite; }
+      .flow.cy { stroke: #2ad4ff; }
+      @keyframes dash { to { stroke-dashoffset: -16; } }
+      @media (prefers-reduced-motion: reduce) { .flow { animation: none; } }
+    </style>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#dots)"/>
+  <rect width="1200" height="900" fill="url(#g1)"/>
+  <rect width="1200" height="900" fill="url(#g2)"/>
+<text x="40" y="96" font-size="44" font-weight="800" fill="#e8f0ff" letter-spacing="-1">Get started in <tspan fill="#2ad4ff">four steps</tspan></text>
+  <text x="40" y="136" font-size="21" fill="#93a8d1">From zero to your first approved phase</text><path class="flow" d="M340 696 V674"/><polygon points="340 660 332 673 348 673" fill="#5b9bff"/><rect x="40" y="700" width="400" height="130" rx="20" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="62" y="724" width="52" height="52" rx="15" fill="url(#brand)"/><g transform="translate(72 734) scale(1.4)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></g>
+    <text x="132" y="748" font-size="14" font-weight="800" letter-spacing="1.5" fill="#2ad4ff">STEP 1</text>
+    <text x="132" y="776" font-size="25" font-weight="750" fill="#e8f0ff">Download the skills</text>
+    <text x="132" y="806" font-size="16" fill="#93a8d1">Windows or macOS, your folder</text><path class="flow" d="M510 526 V504"/><polygon points="510 490 502 503 518 503" fill="#5b9bff"/><rect x="210" y="530" width="400" height="130" rx="20" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="232" y="554" width="52" height="52" rx="15" fill="url(#brand)"/><g transform="translate(242 564) scale(1.4)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15m-4 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0"/><path d="M11 12l9-9"/><path d="M16 7l3 3"/></g>
+    <text x="302" y="578" font-size="14" font-weight="800" letter-spacing="1.5" fill="#2ad4ff">STEP 2</text>
+    <text x="302" y="606" font-size="25" font-weight="750" fill="#e8f0ff">Sign in to Git</text>
+    <text x="302" y="636" font-size="16" fill="#93a8d1">gh auth login  or  az login</text><path class="flow" d="M680 356 V334"/><polygon points="680 320 672 333 688 333" fill="#5b9bff"/><rect x="380" y="360" width="400" height="130" rx="20" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="402" y="384" width="52" height="52" rx="15" fill="url(#brand)"/><g transform="translate(412 394) scale(1.4)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M7 10l3 2-3 2"/><path d="M13 15h4"/></g>
+    <text x="472" y="408" font-size="14" font-weight="800" letter-spacing="1.5" fill="#2ad4ff">STEP 3</text>
+    <text x="472" y="436" font-size="25" font-weight="750" fill="#e8f0ff">Run /aidlc-workflow</text>
+    <text x="472" y="466" font-size="16" fill="#93a8d1">Find your current phase</text><rect x="550" y="190" width="400" height="130" rx="20" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="572" y="214" width="52" height="52" rx="15" fill="url(#brand)"/><g transform="translate(582 224) scale(1.4)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></g>
+    <text x="642" y="238" font-size="14" font-weight="800" letter-spacing="1.5" fill="#2ad4ff">STEP 4</text>
+    <text x="642" y="266" font-size="25" font-weight="750" fill="#e8f0ff">Plan, review, approve</text>
+    <text x="642" y="296" font-size="16" fill="#93a8d1">Then move on to Design</text><circle cx="1060" cy="260" r="92" fill="#5b9bff" fill-opacity=".12"/><circle cx="1060" cy="260" r="70" fill="url(#brand)"/><g transform="translate(1010 210) scale(4.2)" fill="none" stroke="#04112b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1 1-1.5 4-1.5 4s3-.5 4-1.5"/><path d="M12 15l-3-3a22 22 0 0 1 2-4 12 12 0 0 1 9-5c0 3-1 7-5 11a22 22 0 0 1-3 1z"/><path d="M9 12H4s.5-3 2-4c1.5-.5 3 0 3 0"/><path d="M12 15v5s3-.5 4-2c.5-1.5 0-3 0-3"/></g>
+  <path class="flow cy" d="M956 255 H980"/><polygon points="986 255 973 247 973 263" fill="#2ad4ff"/></svg>

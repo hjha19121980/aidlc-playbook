@@ -1,0 +1,15 @@
+# Control bands and response tiers for the Maintain stage.
+# Detection is deterministic code (no model). The agent is invoked only after a band is breached.
+metric: ci_test_failure_rate        # pick one metric with a stable rolling baseline
+baseline: rolling_30d
+rules: western_electric             # catches slow drift as well as spikes
+tiers:
+  1sigma:
+    action: log                     # record only
+  2sigma:
+    action: diagnose                # invoke the incident-diagnostician agent, read-only
+    tools: [read, search]
+  3sigma:
+    action: propose                 # may only open a pull request or trigger a pre-approved runbook
+    routes: [pull_request, "runbook:rollback-deploy"]
+owner: <service owner role>

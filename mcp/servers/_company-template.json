@@ -1,0 +1,15 @@
+{
+  "name": "your-company-server",
+  "title": "Your company server",
+  "description": "What this connector gives agents, in one sentence (for example the internal service catalog, the change-management tool, the data catalog).",
+  "stages": ["plan"],
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@your-company/mcp-server"],
+  "vars": [
+    { "name": "YOUR_SERVER_URL", "secret": false, "description": "Non-secret setting" },
+    { "name": "YOUR_SERVER_TOKEN", "secret": true, "description": "Secret; supplied by each developer, never committed" }
+  ],
+  "access": "Least privilege. Say what is read-only and what can write.",
+  "notes": "Files starting with an underscore are templates and are not generated. Copy this file to <name>.json (no underscore) to add a connector. For a hosted server use: \"transport\": \"http\" and \"url\": \"https://...\" instead of command and args."
+}

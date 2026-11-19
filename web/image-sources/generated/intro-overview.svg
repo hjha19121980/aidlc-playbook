@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="t d" font-family="'Segoe UI Variable', 'Segoe UI', Inter, Roboto, Arial, sans-serif">
+  <title id="t">People and AI working together</title>
+  <desc id="d">A loop: you run a skill, the AI assistant drafts, the result lands in your repository, and you review and approve. Requested changes go back to you.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050c1d"/><stop offset="1" stop-color="#0a1a3d"/></linearGradient>
+    <radialGradient id="g1" cx="0.9" cy="0.0" r="0.7"><stop offset="0" stop-color="#5b9bff" stop-opacity="0.28"/><stop offset="1" stop-color="#5b9bff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="0.05" cy="1" r="0.6"><stop offset="0" stop-color="#2ad4ff" stop-opacity="0.2"/><stop offset="1" stop-color="#2ad4ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1d40"/><stop offset="1" stop-color="#0b1733"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ad4ff"/><stop offset="1" stop-color="#5b9bff"/></linearGradient>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#5b9bff" fill-opacity="0.16"/></pattern>
+    <style>
+      .flow { fill: none; stroke: #5b9bff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 8; animation: dash 0.9s linear infinite; }
+      .flow.cy { stroke: #2ad4ff; }
+      @keyframes dash { to { stroke-dashoffset: -16; } }
+      @media (prefers-reduced-motion: reduce) { .flow { animation: none; } }
+    </style>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#dots)"/>
+  <rect width="1200" height="800" fill="url(#g1)"/>
+  <rect width="1200" height="800" fill="url(#g2)"/>
+<text x="600" y="84" text-anchor="middle" font-size="40" font-weight="800" fill="#e8f0ff" letter-spacing="-1">People direct. <tspan fill="#2ad4ff">AI drafts.</tspan></text>
+  <text x="600" y="126" text-anchor="middle" font-size="21" fill="#93a8d1">Nothing moves on until a person approves it.</text>
+  <path class="flow" d="M518 290 H664"/><polygon points="682 290 669 282 669 298" fill="#5b9bff"/>
+  <path class="flow" d="M910 398 V478"/><polygon points="910 492 902 479 918 479" fill="#5b9bff"/>
+  <path class="flow" d="M682 600 H536"/><polygon points="518 600 531 592 531 608" fill="#5b9bff"/>
+  <path class="flow cy" d="M290 492 V416"/><polygon points="290 398 282 411 298 411" fill="#2ad4ff"/>
+  <text x="306" y="450" font-size="14" font-weight="650" fill="#8ec1ff">Request changes</text><rect x="70" y="190" width="440" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="96" y="220" width="64" height="64" rx="18" fill="url(#brand)"/><g transform="translate(110 234) scale(1.5)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8m-4 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0"/><path d="M4 21a8 8 0 0 1 16 0"/></g>
+    <circle cx="470" cy="234" r="17" fill="#0b1733" stroke="#2ad4ff" stroke-width="1.5"/>
+    <text x="470" y="240" text-anchor="middle" font-size="17" font-weight="800" fill="#8ec1ff">1</text>
+    <text x="96" y="332" font-size="30" font-weight="750" fill="#e8f0ff">You</text>
+    <text x="96" y="366" font-size="18" fill="#93a8d1">Run /aidlc-plan</text><rect x="690" y="190" width="440" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="716" y="220" width="64" height="64" rx="18" fill="url(#brand)"/><g transform="translate(730 234) scale(1.5)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M21 5h-4"/><path d="M5 17v4M7 19H3"/></g>
+    <circle cx="1090" cy="234" r="17" fill="#0b1733" stroke="#2ad4ff" stroke-width="1.5"/>
+    <text x="1090" y="240" text-anchor="middle" font-size="17" font-weight="800" fill="#8ec1ff">2</text>
+    <text x="716" y="332" font-size="30" font-weight="750" fill="#e8f0ff">AI assistant</text>
+    <text x="716" y="366" font-size="18" fill="#93a8d1">Drafts requirements and stories</text><rect x="690" y="500" width="440" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="716" y="530" width="64" height="64" rx="18" fill="url(#brand)"/><g transform="translate(730 544) scale(1.5)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></g>
+    <circle cx="1090" cy="544" r="17" fill="#0b1733" stroke="#2ad4ff" stroke-width="1.5"/>
+    <text x="1090" y="550" text-anchor="middle" font-size="17" font-weight="800" fill="#8ec1ff">3</text>
+    <text x="716" y="642" font-size="30" font-weight="750" fill="#e8f0ff">Your repository</text>
+    <text x="716" y="676" font-size="18" fill="#93a8d1">docs/aidlc/01-plan/</text><rect x="70" y="500" width="440" height="200" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+    <rect x="96" y="530" width="64" height="64" rx="18" fill="url(#brand)"/><g transform="translate(110 544) scale(1.5)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></g>
+    <circle cx="470" cy="544" r="17" fill="#0b1733" stroke="#2ad4ff" stroke-width="1.5"/>
+    <text x="470" y="550" text-anchor="middle" font-size="17" font-weight="800" fill="#8ec1ff">4</text>
+    <text x="96" y="642" font-size="30" font-weight="750" fill="#e8f0ff">You review</text>
+    <text x="96" y="676" font-size="18" fill="#93a8d1">Edit, then approve the gate</text><circle cx="600" cy="445" r="78" fill="#5b9bff" fill-opacity=".1"/><circle cx="600" cy="445" r="58" fill="url(#brand)"/><g transform="translate(582 399) scale(1.5)" fill="none" stroke="#04112b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></g>
+  <text x="600" y="456" text-anchor="middle" font-size="14" font-weight="800" fill="#04112b">HUMAN IN</text><text x="600" y="474" text-anchor="middle" font-size="14" font-weight="800" fill="#04112b">THE LOOP</text></svg>

@@ -1,0 +1,18 @@
+# Azure Pipelines: deterministic gates for AIDLC. Copy to azure-pipelines-aidlc.yml and register it
+# as a build validation policy on the target branch.
+trigger: none
+pr:
+  branches:
+    include: [main]
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    fetchDepth: 0
+  - script: |
+      git fetch origin main
+      # Pass "approved" as the second argument when your process records an approval for protected paths.
+      bash docs/aidlc/guards/protected-paths.sh origin/main
+    displayName: Protected paths need an approval

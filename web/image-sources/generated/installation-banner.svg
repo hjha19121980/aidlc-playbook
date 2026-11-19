@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="1600" height="500" role="img" aria-labelledby="t d" font-family="'Segoe UI Variable', 'Segoe UI', Inter, Roboto, Arial, sans-serif">
+  <title id="t">Installing the AIDLC skills</title>
+  <desc id="d">A terminal running the installer on the left, an arrow, and the installed project folders on the right for Windows and macOS.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050c1d"/><stop offset="1" stop-color="#0a1a3d"/></linearGradient>
+    <radialGradient id="g1" cx="0.9" cy="0.0" r="0.7"><stop offset="0" stop-color="#5b9bff" stop-opacity="0.28"/><stop offset="1" stop-color="#5b9bff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="0.05" cy="1" r="0.6"><stop offset="0" stop-color="#2ad4ff" stop-opacity="0.2"/><stop offset="1" stop-color="#2ad4ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1d40"/><stop offset="1" stop-color="#0b1733"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ad4ff"/><stop offset="1" stop-color="#5b9bff"/></linearGradient>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#5b9bff" fill-opacity="0.16"/></pattern>
+    <style>
+      .flow { fill: none; stroke: #5b9bff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 8; animation: dash 0.9s linear infinite; }
+      .flow.cy { stroke: #2ad4ff; }
+      @keyframes dash { to { stroke-dashoffset: -16; } }
+      @media (prefers-reduced-motion: reduce) { .flow { animation: none; } }
+    </style>
+  </defs>
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <rect width="1600" height="500" fill="url(#dots)"/>
+  <rect width="1600" height="500" fill="url(#g1)"/>
+  <rect width="1600" height="500" fill="url(#g2)"/>
+<rect x="80" y="80" width="640" height="340" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/><circle cx="106" cy="106" r="6" fill="#ff6b6b" fill-opacity=".75"/><circle cx="126" cy="106" r="6" fill="#ffd166" fill-opacity=".75"/><circle cx="146" cy="106" r="6" fill="#3ddc97" fill-opacity=".75"/><text x="172" y="111" font-size="14" fill="#93a8d1">Terminal</text>
+  <text font-family="'Cascadia Code', Consolas, 'SF Mono', monospace" font-size="19">
+    <tspan x="112" y="168" fill="#93a8d1">$</tspan><tspan dx="12" fill="#e8f0ff">curl -fsSLO &lt;site&gt;/downloads/install.sh</tspan>
+    <tspan x="112" y="206" fill="#93a8d1">$</tspan><tspan dx="12" fill="#e8f0ff">bash install.sh --target ~/my-project</tspan>
+    <tspan x="112" y="258" fill="#3ddc97">Checksum verified (SHA-256).</tspan>
+    <tspan x="112" y="294" fill="#3ddc97">Installed 42 files into ~/my-project</tspan>
+    <tspan x="112" y="346" fill="#93a8d1">$</tspan><tspan dx="12" fill="#8ec1ff">/aidlc-workflow</tspan>
+  </text>
+  <rect x="362" y="330" width="11" height="22" fill="#2ad4ff"/>
+  <path class="flow" d="M740 250 H842"/><polygon points="856 250 843 242 843 258" fill="#5b9bff"/>
+  <rect x="880" y="80" width="640" height="340" rx="22" fill="url(#card)" stroke="#24407e" stroke-width="1.5"/>
+  <g transform="translate(912 106) scale(1.5)" fill="none" stroke="#8ec1ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g>
+  <text x="958" y="136" font-size="24" font-weight="750" fill="#e8f0ff">my-project</text><g transform="translate(914 174) scale(1.1)" fill="none" stroke="#3ddc97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></g>
+    <text x="948" y="190" font-size="20" font-family="'Cascadia Code', Consolas, 'SF Mono', monospace" fill="#e8f0ff">.claude/skills/</text>
+    <text x="1180" y="190" font-size="16" fill="#93a8d1">Terminal agent skills</text><g transform="translate(914 226) scale(1.1)" fill="none" stroke="#3ddc97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></g>
+    <text x="948" y="242" font-size="20" font-family="'Cascadia Code', Consolas, 'SF Mono', monospace" fill="#e8f0ff">.github/skills/</text>
+    <text x="1180" y="242" font-size="16" fill="#93a8d1">Copilot skills</text><g transform="translate(914 278) scale(1.1)" fill="none" stroke="#3ddc97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></g>
+    <text x="948" y="294" font-size="20" font-family="'Cascadia Code', Consolas, 'SF Mono', monospace" fill="#e8f0ff">.github/agents/</text>
+    <text x="1180" y="294" font-size="16" fill="#93a8d1">Copilot agents</text><g transform="translate(914 330) scale(1.1)" fill="none" stroke="#3ddc97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></g>
+    <text x="948" y="346" font-size="20" font-family="'Cascadia Code', Consolas, 'SF Mono', monospace" fill="#e8f0ff">docs/aidlc/</text>
+    <text x="1180" y="346" font-size="16" fill="#93a8d1">Docs and status tracker</text><rect x="912" y="372" width="140" height="32" rx="16" fill="#5b9bff" fill-opacity=".14" stroke="#5b9bff" stroke-opacity=".5"/><g transform="translate(924 376) scale(1)" fill="none" stroke="#8ec1ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v12H3z"/><path d="M8 20h8"/><path d="M12 16v4"/></g><text x="954" y="394" font-size="15" font-weight="650" fill="#8ec1ff">Windows</text>
+  <rect x="1068" y="372" width="120" height="32" rx="16" fill="#5b9bff" fill-opacity=".14" stroke="#5b9bff" stroke-opacity=".5"/><g transform="translate(1080 376) scale(1)" fill="none" stroke="#8ec1ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M7 10l3 2-3 2"/><path d="M13 15h4"/></g><text x="1110" y="394" font-size="15" font-weight="650" fill="#8ec1ff">macOS</text></svg>

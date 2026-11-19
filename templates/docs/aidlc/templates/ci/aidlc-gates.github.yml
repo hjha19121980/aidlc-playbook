@@ -1,0 +1,32 @@
+# GitHub Actions: deterministic gates for AIDLC. Copy to .github/workflows/aidlc-gates.yml
+name: AIDLC gates
+on:
+  pull_request:
+
+jobs:
+  protected-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Protected paths need an approval label
+        run: |
+          approved=""
+          if [ "${{ contains(github.event.pull_request.labels.*.name, 'protected-path-approved') }}" = "true" ]; then approved="approved"; fi
+          bash docs/aidlc/guards/protected-paths.sh "origin/${{ github.base_ref }}" "$approved"
+
+  plan-present:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: A change folder with an accepted plan must exist
+        run: |
+          # Fails when source changes but no docs/aidlc/changes/*/plan.md was added or updated.
+          # Adjust the source paths to your repository, or remove this job for trivial-change flows.
+          src=$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD | grep -vE '^(docs/|\.github/|README)' || true)
+          plan=$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD | grep -E '^docs/aidlc/changes/[^/]+/plan\.md$' || true)
+          if [ -n "$src" ] && [ -z "$plan" ]; then
+            echo "Source changed without a plan.md in docs/aidlc/changes/. Add or update the plan, or label as trivial." >&2
+            exit 1
+          fi
