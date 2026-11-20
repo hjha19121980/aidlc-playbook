@@ -11,12 +11,16 @@
 #   --tool <name>      all (default), agent (terminal AI agent) or copilot (GitHub Copilot).
 #   --base-url <url>   URL of the downloads folder of the deployed AIDLC Playbook.
 #   --zip <file>       Install from a zip you already downloaded.
+#   --skills <a,b,c>   Install only these skills (aidlc-workflow is always included). Default: all.
+#   --agents <a,b,c>   Install only these agents, or "none". Default: all, or none if --skills is given.
 set -euo pipefail
 
 target="$PWD"
 tool="all"
 base_url=""
 zip_path=""
+skills_arg=""   # comma-separated skill names; empty means all
+agents_arg=""   # comma-separated agent names, or "none"; empty means all (or none when --skills is given)
 
 usage() { sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'; }
 
@@ -26,6 +30,8 @@ while [ $# -gt 0 ]; do
     --tool)     tool="${2:-}"; shift 2 ;;
     --base-url) base_url="${2:-}"; shift 2 ;;
     --zip)      zip_path="${2:-}"; shift 2 ;;
+    --skills)   skills_arg="${2:-}"; shift 2 ;;
+    --agents)   agents_arg="${2:-}"; shift 2 ;;
     -h|--help)  usage; exit 0 ;;
     *) echo "Unknown option: $1" >&2; usage; exit 2 ;;
   esac
@@ -79,6 +85,36 @@ fi
 stage="$tmp/stage"
 mkdir -p "$stage"
 unzip -q -o "$zip_file" -d "$stage"
+
+# Keep only the requested skills and agents (the bundle contains everything).
+has() { case ",$1," in *",$2,"*) return 0 ;; esac; return 1; }
+if [ -n "$skills_arg" ]; then
+  keep_skills="aidlc-workflow,${skills_arg// /}"
+  [ -n "$agents_arg" ] || agents_arg="none"
+  for d in "$stage"/.claude/skills/* "$stage"/.github/skills/*; do
+    [ -d "$d" ] || continue
+    n="${d%/}"; n="${n##*/}"
+    has "$keep_skills" "$n" || rm -rf "$d"
+  done
+  for f in "$stage"/.github/prompts/*.prompt.md; do
+    [ -f "$f" ] || continue
+    n="${f##*/}"; n="${n%.prompt.md}"
+    has "$keep_skills" "$n" || rm -f "$f"
+  done
+fi
+if [ -n "$agents_arg" ]; then
+  keep_agents="${agents_arg// /}"
+  for f in "$stage"/.claude/agents/*.md; do
+    [ -f "$f" ] || continue
+    n="${f##*/}"; n="${n%.md}"
+    has "$keep_agents" "$n" || rm -f "$f"
+  done
+  for f in "$stage"/.github/agents/*.agent.md; do
+    [ -f "$f" ] || continue
+    n="${f##*/}"; n="${n%.agent.md}"
+    has "$keep_agents" "$n" || rm -f "$f"
+  done
+fi
 
 begin='<!-- aidlc:begin -->'
 end='<!-- aidlc:end -->'

@@ -1,6 +1,6 @@
 ---
 name: aidlc-maintain
-description: AIDLC Stage 6, Maintain. Use to close the loop: watch metrics against control bands, diagnose breaches, write findings as a new intent.md, run incident reviews, and keep a lessons file. Detection stays deterministic.
+description: AIDLC Stage 6, Maintain. Use to close the loop - watch metrics against control bands, diagnose breaches, write findings as a new intent.md, run incident reviews, and keep a lessons file. Detection stays deterministic.
 ---
 
 # AIDLC Stage 6: Maintain, close the loop

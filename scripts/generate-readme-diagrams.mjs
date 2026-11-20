@@ -4,7 +4,7 @@
 //   docs/diagrams/aidlc-architecture.svg  concentric architecture: loop, artifacts, skills and agents, guardrails, connectors
 // Dots travel around the loop. GitHub renders the animation when the SVG is shown as an image.
 // Usage: node scripts/generate-readme-diagrams.mjs [outputDir]
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { MONO, close, headAt, icon, open, orbitDots } from './lib/svg.mjs';
@@ -14,6 +14,7 @@ const outDir = process.argv[2] ? resolve(process.argv[2]) : join(root, 'docs', '
 mkdirSync(outDir, { recursive: true });
 const write = (name, svg) => { writeFileSync(join(outDir, name), svg); console.log('wrote', name); };
 const rad = (d) => (d * Math.PI) / 180;
+const SKILL_COUNT = readdirSync(join(root, 'skills'), { withFileTypes: true }).filter((d) => d.isDirectory()).length;
 const STAGES = ['Plan', 'Design', 'Build', 'Test', 'Deploy', 'Maintain'];
 const STAGE_ICONS = ['compass', 'pencil', 'code', 'flask', 'upload', 'wrench'];
 
@@ -99,7 +100,7 @@ const loopArcs = (cx, cy, R, nodeR) => {
   const rows = [
     { n: '1', t: 'Connectors (MCP)', d: 'Git, Figma, Jira, Confluence and your company servers. Read first; writes need approval.', r: 410 },
     { n: '2', t: 'Guardrails', d: 'Branch protection, required CI checks, protected paths, evals and control bands.', r: 350 },
-    { n: '3', t: 'Skills and agents', d: '20 skills and 10 agents, written once and installed for both assistants.', r: 290 },
+    { n: '3', t: 'Skills and agents', d: `${SKILL_COUNT} skills across every stage and 10 agents, written once and installed for both assistants, or only the ones a role needs.`, r: 290 },
     { n: '4', t: 'Artifacts', d: 'intent, spec, plan, test report, review findings, release, incident, plus AGENTS.md and REVIEW.md.', r: 230 },
     { n: '5', t: 'The loop', d: 'Plan, Design, Build, Test, Deploy and Maintain, with a human gate at each stage.', r: 140 },
     { n: '', t: 'People (center)', d: 'Product owner, tech lead, code owner, release manager and service owner decide at the gates.', r: 0 },

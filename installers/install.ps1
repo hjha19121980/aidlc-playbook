@@ -8,6 +8,10 @@
   all (default), agent (terminal AI agent) or copilot (GitHub Copilot).
 .PARAMETER BaseUrl
   URL of the downloads folder of the deployed AIDLC Playbook, e.g. https://host/downloads
+.PARAMETER Skills
+  Install only these skills (comma-separated). aidlc-workflow is always included. Default: all.
+.PARAMETER Agents
+  Install only these agents (comma-separated), or 'none'. Default: all, or none when -Skills is given.
 .PARAMETER ZipPath
   Install from a zip you already downloaded instead of using -BaseUrl.
 
@@ -21,7 +25,9 @@ param(
   [string]$Target = (Get-Location).Path,
   [ValidateSet('all', 'agent', 'copilot')][string]$Tool = 'all',
   [string]$BaseUrl,
-  [string]$ZipPath
+  [string]$ZipPath,
+  [string]$Skills,   # comma-separated skill names; aidlc-workflow is always included. Default: all
+  [string]$Agents    # comma-separated agent names, or 'none'. Default: all (or none when -Skills is given)
 )
 
 $ErrorActionPreference = 'Stop'
@@ -85,6 +91,25 @@ try {
 
   $stage = Join-Path $tmp 'stage'
   Expand-Archive -LiteralPath $zip -DestinationPath $stage -Force
+
+  # Keep only the requested skills and agents (the bundle contains everything).
+  if ($Skills) {
+    $keepSkills = @('aidlc-workflow') + @($Skills -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+    if (-not $Agents) { $Agents = 'none' }
+    foreach ($root in @('.claude\skills', '.github\skills')) {
+      $p = Join-Path $stage $root
+      if (Test-Path -LiteralPath $p) { Get-ChildItem -LiteralPath $p -Directory | Where-Object { $keepSkills -notcontains $_.Name } | Remove-Item -Recurse -Force }
+    }
+    $pp = Join-Path $stage '.github\prompts'
+    if (Test-Path -LiteralPath $pp) { Get-ChildItem -LiteralPath $pp -Filter '*.prompt.md' | Where-Object { $keepSkills -notcontains $_.Name.Substring(0, $_.Name.Length - 10) } | Remove-Item -Force }
+  }
+  if ($Agents) {
+    $keepAgents = @($Agents -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+    $ap = Join-Path $stage '.claude\agents'
+    if (Test-Path -LiteralPath $ap) { Get-ChildItem -LiteralPath $ap -Filter '*.md' | Where-Object { $keepAgents -notcontains $_.BaseName } | Remove-Item -Force }
+    $gp = Join-Path $stage '.github\agents'
+    if (Test-Path -LiteralPath $gp) { Get-ChildItem -LiteralPath $gp -Filter '*.agent.md' | Where-Object { $keepAgents -notcontains $_.Name.Substring(0, $_.Name.Length - 9) } | Remove-Item -Force }
+  }
 
   # Files listed here belong to the project once installed: create them only if they do not exist.
   $seed = @()

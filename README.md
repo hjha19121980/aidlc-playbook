@@ -42,19 +42,59 @@ Regenerate both diagrams with `node scripts/generate-readme-diagrams.mjs`.
 skills/        Source of truth: one folder per skill (tool-neutral SKILL.md)
 agents/        Source of truth: one markdown file per agent (tool-neutral)
 mcp/           Source of truth: one JSON per connector (Git, Figma, Jira, Confluence, plus a company template)
+standards/     Source of truth: one coding standard per language, read by code review (installed to docs/aidlc/standards)
+catalog/       catalog.json: which group each skill and agent belongs to, and the role presets
 templates/     Files installed into projects: docs/aidlc/*, AGENTS.md, REVIEW.md, evals/
 installers/    install.ps1 (Windows) and install.sh (macOS, Linux)
 scripts/       sync-skills.mjs, build-downloads.mjs, image generators
 web/           Angular 21 web app
 ```
-Edit only `skills/`, `agents/`, `mcp/` and `templates/`. Everything else is generated. Nothing generated is kept in the repository root: the assistants' own folders (`.claude`, `.github`) are produced only inside the download bundles and in projects you install into.
+Edit only `skills/`, `agents/`, `mcp/`, `standards/`, `catalog/` and `templates/`. Everything else is generated. Nothing generated is kept in the repository root: the assistants' own folders (`.claude`, `.github`) are produced only inside the download bundles and in projects you install into.
 
 Why a separate `skills/` folder? Each assistant requires its skills in its own folder, so a neutral source is the only way to maintain one copy and still serve both. It is a build input, not something users install.
 
-## Skills (20)
-- **AIDLC stages (7):** `aidlc-workflow` (orchestrator), `aidlc-plan`, `aidlc-design`, `aidlc-build`, `aidlc-test`, `aidlc-deploy`, `aidlc-maintain`.
-- **Practices (7):** `aidlc-project-context` (AGENTS.md), `aidlc-policy-skill`, `aidlc-review-policy` (REVIEW.md), `aidlc-guardrails`, `aidlc-evals`, `aidlc-metrics`, `aidlc-connectors`.
-- **Git (6):** `git-commit`, `git-create-pr`, `git-review-pr`, `git-pr-comment`, `git-resolve-pr-conflicts`, `git-release-notes`.
+## Skills (77)
+Every skill belongs to one group in [catalog/catalog.json](catalog/catalog.json). The website filters, the role presets, and the installer all read that file, and the build fails if a skill is missing from it.
+
+| Group | Skills |
+|---|---|
+| **Plan (12)** | `aidlc-plan`, `grounded-research`, `generate-meeting-minutes`, `jira-to-markdown`, `confluence-to-markdown`, `stakeholder-analysis`, `user-stories-and-acceptance-criteria`, `requirements-gap-analysis`, `backlog-prioritization`, `estimation-and-planning`, `risk-assessment`, `business-case` |
+| **Design (9)** | `aidlc-design`, `solution-architecture`, `architecture-decision-record`, `api-design`, `data-modeling`, `threat-modeling`, `ui-ux-spec`, `nfr-capacity-planning`, `design-review` |
+| **Build (15)** | `aidlc-build`, `cobol-development`, `cobol-legacy-analysis`, `aidlc-analysis`, `analyze-repository`, `impact-analysis`, `knowledge-index`, `knowledge-graph`, `dependency-analysis`, `tech-debt-assessment`, `refactoring`, `api-implementation`, `database-migration`, `code-documentation`, `dependency-upgrade` |
+| **Test (10)** | `aidlc-test`, `test-strategy`, `unit-test-generation`, `e2e-test-authoring`, `performance-test`, `security-scan-review`, `accessibility-audit`, `test-data-generation`, `defect-triage`, `coverage-gap-analysis` |
+| **Deploy (8)** | `aidlc-deploy`, `code-review`, `ci-cd-pipeline`, `infrastructure-as-code`, `containerization`, `change-request`, `release-readiness-review`, `feature-flag-rollout` |
+| **Maintain (9)** | `aidlc-maintain`, `incident-response`, `root-cause-analysis`, `runbook-authoring`, `observability-setup`, `slo-definition`, `vulnerability-triage`, `support-ticket-triage`, `cost-optimization` |
+| **Git and GitHub (6)** | `git-commit`, `git-create-pr`, `git-review-pr`, `git-pr-comment`, `git-resolve-pr-conflicts`, `git-release-notes` |
+| **Foundations (8)** | `aidlc-workflow` (orchestrator, always installed), `aidlc-project-context`, `aidlc-policy-skill`, `aidlc-review-policy`, `aidlc-guardrails`, `aidlc-evals`, `aidlc-metrics`, `aidlc-connectors` |
+
+To add a skill: create `skills/<name>/SKILL.md`, add one line to `catalog/catalog.json`, and run `node scripts/build-downloads.mjs`.
+
+### Install only what you need
+The Installation and Get Started pages let a user pick a role (business analyst, architect, developer, mainframe developer, tester, DevOps, operations) or tick individual skills, and generate the matching command. The installers also accept the lists directly:
+```
+install.sh   --skills grounded-research,generate-meeting-minutes --agents intent-analyst
+install.ps1  -Skills 'grounded-research,generate-meeting-minutes' -Agents 'intent-analyst'
+```
+`aidlc-workflow` is always included. With `--skills` and no `--agents`, no agents are installed; without either, everything is installed. Agents are chosen automatically for the stages you pick.
+
+## Coding standards and code review
+`standards/` has one document per language or framework. Each has numbered rules (for example `JAVA-005`) with a default severity (Important or Nit), a tooling baseline, and a "Local overrides" section for team rules.
+
+| Document | Covers |
+|---|---|
+| `java.md`, `spring-boot.md`, `kotlin.md` | Java, Spring Boot (also loads Java), Kotlin |
+| `python.md`, `r.md`, `ruby.md`, `php.md` | Python, R, Ruby, PHP |
+| `typescript.md`, `javascript.md`, `angular.md`, `react.md` | TypeScript, JavaScript, Angular and React (both also load TypeScript or JavaScript) |
+| `go.md`, `cpp.md`, `csharp.md`, `dart.md` | Go, C++, C#, Dart and Flutter |
+| `sql.md`, `cobol.md` | SQL, COBOL and JCL for mainframe |
+
+`standards/index.md` maps file extensions and manifests to documents. `standards/_template.md` is the starting point for a new language.
+
+**How review uses them.** The `code-review` skill and the `reviewer` agent read `docs/aidlc/standards/index.md`, match the changed files to the documents (a Spring Boot change also loads Java), read them in full, and cite the rule ID in every standards finding. `git-review-pr` runs the same procedure on a pull request, and `REVIEW.md` has a Standards pass. Local overrides in a document win over the baseline.
+
+**Status.** The documents are a baseline from general industry practice, not an approved Capgemini standard. Have a language owner review each one and record local overrides before you enforce them. The installer creates the documents only if they are missing, so your edits survive a reinstall.
+
+**COBOL and the mainframe.** `cobol.md` covers layout, data and arithmetic, file and SQL status checks, copybooks, JCL, security, and testing. The `cobol-development` skill changes programs, copybooks, and JCL to that standard, and `cobol-legacy-analysis` maps an existing estate (call graph, data flow, business rules). The *Mainframe developer* role installs both plus code review, impact analysis, and Git.
 
 ## Agents (10)
 `intent-analyst`, `spec-author`, `planner` (read-only), `researcher` (read-only), `code-simplifier`, `verifier` (reports only), `reviewer` (cannot edit or approve), `release-coordinator` (stops at the production gate), `incident-diagnostician`, `confidence-gate`.

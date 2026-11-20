@@ -1,0 +1,526 @@
+{
+  "stages": [
+    {
+      "id": "plan",
+      "label": "Plan",
+      "icon": "compass"
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "icon": "pencil"
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "icon": "code"
+    },
+    {
+      "id": "test",
+      "label": "Test",
+      "icon": "flask"
+    },
+    {
+      "id": "deploy",
+      "label": "Deploy",
+      "icon": "cloud-upload"
+    },
+    {
+      "id": "maintain",
+      "label": "Maintain",
+      "icon": "wrench"
+    },
+    {
+      "id": "git",
+      "label": "Git and GitHub",
+      "icon": "git-branch"
+    },
+    {
+      "id": "foundations",
+      "label": "Foundations",
+      "icon": "layers"
+    }
+  ],
+  "core": [
+    "aidlc-workflow"
+  ],
+  "roles": [
+    {
+      "id": "everything",
+      "label": "Everything",
+      "description": "All skills and agents",
+      "stages": [
+        "plan",
+        "design",
+        "build",
+        "test",
+        "deploy",
+        "maintain",
+        "git",
+        "foundations"
+      ],
+      "extra": []
+    },
+    {
+      "id": "business-analyst",
+      "label": "Business analyst",
+      "description": "Plan skills plus UX and design review, connectors",
+      "stages": [
+        "plan"
+      ],
+      "extra": [
+        "ui-ux-spec",
+        "design-review",
+        "aidlc-connectors",
+        "aidlc-metrics"
+      ]
+    },
+    {
+      "id": "architect",
+      "label": "Architect",
+      "description": "Design skills, analysis, and guardrails",
+      "stages": [
+        "design"
+      ],
+      "extra": [
+        "aidlc-analysis",
+        "analyze-repository",
+        "impact-analysis",
+        "knowledge-index",
+        "knowledge-graph",
+        "aidlc-policy-skill",
+        "aidlc-guardrails",
+        "aidlc-connectors"
+      ]
+    },
+    {
+      "id": "developer",
+      "label": "Developer",
+      "description": "Build skills, Git and GitHub, project context",
+      "stages": [
+        "build",
+        "git"
+      ],
+      "extra": [
+        "aidlc-project-context",
+        "aidlc-connectors",
+        "code-review"
+      ]
+    },
+    {
+      "id": "mainframe-developer",
+      "label": "Mainframe developer",
+      "description": "COBOL development and analysis, code review, Git, and the analysis skills",
+      "stages": [],
+      "extra": [
+        "cobol-development",
+        "cobol-legacy-analysis",
+        "code-review",
+        "aidlc-build",
+        "analyze-repository",
+        "impact-analysis",
+        "knowledge-index",
+        "knowledge-graph",
+        "test-strategy",
+        "defect-triage",
+        "change-request",
+        "aidlc-project-context",
+        "aidlc-connectors",
+        "git-commit",
+        "git-create-pr",
+        "git-review-pr",
+        "git-pr-comment",
+        "git-resolve-pr-conflicts"
+      ]
+    },
+    {
+      "id": "tester",
+      "label": "Tester",
+      "description": "Test skills, defects, evals",
+      "stages": [
+        "test"
+      ],
+      "extra": [
+        "aidlc-evals",
+        "git-create-pr",
+        "git-pr-comment",
+        "aidlc-connectors",
+        "code-review"
+      ]
+    },
+    {
+      "id": "devops",
+      "label": "DevOps and release",
+      "description": "Deploy and Maintain skills, guardrails, Git",
+      "stages": [
+        "deploy",
+        "maintain",
+        "git"
+      ],
+      "extra": [
+        "aidlc-guardrails",
+        "aidlc-review-policy",
+        "aidlc-connectors",
+        "code-review"
+      ]
+    },
+    {
+      "id": "operations",
+      "label": "Support and operations",
+      "description": "Maintain skills and connectors",
+      "stages": [
+        "maintain"
+      ],
+      "extra": [
+        "aidlc-connectors",
+        "aidlc-metrics"
+      ]
+    }
+  ],
+  "skills": {
+    "aidlc-workflow": {
+      "stage": "foundations",
+      "icon": "layers"
+    },
+    "aidlc-plan": {
+      "stage": "plan"
+    },
+    "aidlc-design": {
+      "stage": "design"
+    },
+    "aidlc-build": {
+      "stage": "build"
+    },
+    "aidlc-test": {
+      "stage": "test"
+    },
+    "aidlc-deploy": {
+      "stage": "deploy"
+    },
+    "aidlc-maintain": {
+      "stage": "maintain"
+    },
+    "aidlc-project-context": {
+      "stage": "foundations",
+      "icon": "file"
+    },
+    "aidlc-policy-skill": {
+      "stage": "foundations",
+      "icon": "shield"
+    },
+    "aidlc-review-policy": {
+      "stage": "foundations",
+      "icon": "search"
+    },
+    "aidlc-guardrails": {
+      "stage": "foundations",
+      "icon": "shield"
+    },
+    "aidlc-evals": {
+      "stage": "foundations",
+      "icon": "flask"
+    },
+    "aidlc-metrics": {
+      "stage": "foundations",
+      "icon": "zap"
+    },
+    "aidlc-connectors": {
+      "stage": "foundations",
+      "icon": "puzzle"
+    },
+    "git-commit": {
+      "stage": "git",
+      "icon": "git-branch"
+    },
+    "git-create-pr": {
+      "stage": "git",
+      "icon": "git-pull-request"
+    },
+    "git-review-pr": {
+      "stage": "git",
+      "icon": "search"
+    },
+    "git-pr-comment": {
+      "stage": "git",
+      "icon": "message"
+    },
+    "git-resolve-pr-conflicts": {
+      "stage": "git",
+      "icon": "git-merge"
+    },
+    "git-release-notes": {
+      "stage": "git",
+      "icon": "tag"
+    },
+    "grounded-research": {
+      "stage": "plan",
+      "icon": "search"
+    },
+    "generate-meeting-minutes": {
+      "stage": "plan",
+      "icon": "message"
+    },
+    "jira-to-markdown": {
+      "stage": "plan",
+      "icon": "file"
+    },
+    "confluence-to-markdown": {
+      "stage": "plan",
+      "icon": "book"
+    },
+    "stakeholder-analysis": {
+      "stage": "plan",
+      "icon": "users"
+    },
+    "user-stories-and-acceptance-criteria": {
+      "stage": "plan",
+      "icon": "clipboard"
+    },
+    "requirements-gap-analysis": {
+      "stage": "plan",
+      "icon": "search"
+    },
+    "backlog-prioritization": {
+      "stage": "plan",
+      "icon": "zap"
+    },
+    "estimation-and-planning": {
+      "stage": "plan",
+      "icon": "clipboard"
+    },
+    "risk-assessment": {
+      "stage": "plan",
+      "icon": "shield"
+    },
+    "business-case": {
+      "stage": "plan",
+      "icon": "file"
+    },
+    "solution-architecture": {
+      "stage": "design",
+      "icon": "layers"
+    },
+    "architecture-decision-record": {
+      "stage": "design",
+      "icon": "file"
+    },
+    "api-design": {
+      "stage": "design",
+      "icon": "code"
+    },
+    "data-modeling": {
+      "stage": "design",
+      "icon": "server"
+    },
+    "threat-modeling": {
+      "stage": "design",
+      "icon": "shield"
+    },
+    "ui-ux-spec": {
+      "stage": "design",
+      "icon": "image"
+    },
+    "nfr-capacity-planning": {
+      "stage": "design",
+      "icon": "zap"
+    },
+    "design-review": {
+      "stage": "design",
+      "icon": "search"
+    },
+    "analyze-repository": {
+      "stage": "build",
+      "icon": "search"
+    },
+    "impact-analysis": {
+      "stage": "build",
+      "icon": "git-branch"
+    },
+    "knowledge-index": {
+      "stage": "build",
+      "icon": "book"
+    },
+    "knowledge-graph": {
+      "stage": "build",
+      "icon": "layers"
+    },
+    "aidlc-analysis": {
+      "stage": "build",
+      "icon": "compass"
+    },
+    "dependency-analysis": {
+      "stage": "build",
+      "icon": "box"
+    },
+    "tech-debt-assessment": {
+      "stage": "build",
+      "icon": "wrench"
+    },
+    "refactoring": {
+      "stage": "build",
+      "icon": "code"
+    },
+    "api-implementation": {
+      "stage": "build",
+      "icon": "code"
+    },
+    "database-migration": {
+      "stage": "build",
+      "icon": "server"
+    },
+    "code-documentation": {
+      "stage": "build",
+      "icon": "book"
+    },
+    "dependency-upgrade": {
+      "stage": "build",
+      "icon": "box"
+    },
+    "test-strategy": {
+      "stage": "test",
+      "icon": "flask"
+    },
+    "unit-test-generation": {
+      "stage": "test",
+      "icon": "flask"
+    },
+    "e2e-test-authoring": {
+      "stage": "test",
+      "icon": "monitor"
+    },
+    "performance-test": {
+      "stage": "test",
+      "icon": "zap"
+    },
+    "security-scan-review": {
+      "stage": "test",
+      "icon": "shield"
+    },
+    "accessibility-audit": {
+      "stage": "test",
+      "icon": "users"
+    },
+    "test-data-generation": {
+      "stage": "test",
+      "icon": "server"
+    },
+    "defect-triage": {
+      "stage": "test",
+      "icon": "search"
+    },
+    "coverage-gap-analysis": {
+      "stage": "test",
+      "icon": "clipboard"
+    },
+    "ci-cd-pipeline": {
+      "stage": "deploy",
+      "icon": "cloud-upload"
+    },
+    "infrastructure-as-code": {
+      "stage": "deploy",
+      "icon": "server"
+    },
+    "containerization": {
+      "stage": "deploy",
+      "icon": "box"
+    },
+    "change-request": {
+      "stage": "deploy",
+      "icon": "clipboard"
+    },
+    "release-readiness-review": {
+      "stage": "deploy",
+      "icon": "check"
+    },
+    "feature-flag-rollout": {
+      "stage": "deploy",
+      "icon": "zap"
+    },
+    "incident-response": {
+      "stage": "maintain",
+      "icon": "wrench"
+    },
+    "root-cause-analysis": {
+      "stage": "maintain",
+      "icon": "search"
+    },
+    "runbook-authoring": {
+      "stage": "maintain",
+      "icon": "file"
+    },
+    "observability-setup": {
+      "stage": "maintain",
+      "icon": "monitor"
+    },
+    "slo-definition": {
+      "stage": "maintain",
+      "icon": "zap"
+    },
+    "vulnerability-triage": {
+      "stage": "maintain",
+      "icon": "shield"
+    },
+    "support-ticket-triage": {
+      "stage": "maintain",
+      "icon": "message"
+    },
+    "cost-optimization": {
+      "stage": "maintain",
+      "icon": "box"
+    },
+    "code-review": {
+      "stage": "deploy",
+      "icon": "search"
+    },
+    "cobol-development": {
+      "stage": "build",
+      "icon": "code"
+    },
+    "cobol-legacy-analysis": {
+      "stage": "build",
+      "icon": "search"
+    }
+  },
+  "agents": {
+    "intent-analyst": {
+      "stage": "plan",
+      "icon": "compass"
+    },
+    "spec-author": {
+      "stage": "design",
+      "icon": "pencil"
+    },
+    "planner": {
+      "stage": "build",
+      "icon": "clipboard"
+    },
+    "researcher": {
+      "stage": "build",
+      "icon": "search"
+    },
+    "code-simplifier": {
+      "stage": "build",
+      "icon": "code"
+    },
+    "verifier": {
+      "stage": "test",
+      "icon": "flask"
+    },
+    "reviewer": {
+      "stage": "deploy",
+      "icon": "shield"
+    },
+    "release-coordinator": {
+      "stage": "deploy",
+      "icon": "cloud-upload"
+    },
+    "incident-diagnostician": {
+      "stage": "maintain",
+      "icon": "wrench"
+    },
+    "confidence-gate": {
+      "stage": "maintain",
+      "icon": "check"
+    }
+  }
+}

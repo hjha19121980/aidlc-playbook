@@ -22,58 +22,9 @@ export const PHASES: Phase[] = [
   { id: 'maintain', title: 'Maintain', icon: 'wrench', skill: 'aidlc-maintain', goal: 'Close the loop: what the agent finds becomes the next intent.', reads: 'Metrics, incidents and tickets', commits: 'incident.md and a new intent.md', outputs: ['Control bands with response tiers', 'Incident record and lessons file', 'New intent.md that restarts the loop'], gate: 'Service owner triages findings' },
 ];
 
-export type SkillGroup = 'aidlc' | 'practice' | 'git';
-export interface Skill {
-  name: string;
-  group: SkillGroup;
-  icon: IconName;
-  description: string;
-}
-
-export const SKILLS: Skill[] = [
-  { name: 'aidlc-workflow', group: 'aidlc', icon: 'layers', description: 'Orchestrator. Tracks every change, finds its stage and gate, and recommends the next skill.' },
-  { name: 'aidlc-plan', group: 'aidlc', icon: 'compass', description: 'Stage 1. Capture an idea, ticket or incident finding as intent.md.' },
-  { name: 'aidlc-design', group: 'aidlc', icon: 'pencil', description: 'Stage 2. Turn an accepted intent into spec.md, constrained by policy skills.' },
-  { name: 'aidlc-build', group: 'aidlc', icon: 'code', description: 'Stage 3. Plan first (plan.md), then implement in small steps with subagents.' },
-  { name: 'aidlc-test', group: 'aidlc', icon: 'flask', description: 'Stage 4. Feedback loop, test-first fixes and test-report.md evidence.' },
-  { name: 'aidlc-deploy', group: 'aidlc', icon: 'cloud-upload', description: 'Stage 5. Layered PR review, approval gates and tiered CI/CD.' },
-  { name: 'aidlc-maintain', group: 'aidlc', icon: 'wrench', description: 'Stage 6. Control bands, incident diagnosis and a new intent.md to restart the loop.' },
-  { name: 'aidlc-project-context', group: 'practice', icon: 'file', description: 'Create and maintain AGENTS.md, the context every agent reads.' },
-  { name: 'aidlc-policy-skill', group: 'practice', icon: 'shield', description: 'Write an organization policy as a skill so rules are applied consistently.' },
-  { name: 'aidlc-review-policy', group: 'practice', icon: 'search', description: 'Write and tune REVIEW.md: passes, severity, caps and exclusions.' },
-  { name: 'aidlc-guardrails', group: 'practice', icon: 'shield', description: 'Turn approval gates and policies into deterministic checks.' },
-  { name: 'aidlc-evals', group: 'practice', icon: 'flask', description: 'Regression-test agent configuration with continuous evals.' },
-  { name: 'aidlc-metrics', group: 'practice', icon: 'zap', description: 'Leading and lagging indicators read from git history and CI.' },
-  { name: 'aidlc-connectors', group: 'practice', icon: 'puzzle', description: 'Use Git, Figma, Jira, Confluence and company connectors (MCP) safely at each stage.' },
-  { name: 'git-commit', group: 'git', icon: 'git-branch', description: 'Create a branch and Conventional Commit messages safely.' },
-  { name: 'git-create-pr', group: 'git', icon: 'git-pull-request', description: 'Open a PR with a template description and an opening comment (GitHub and Azure DevOps).' },
-  { name: 'git-review-pr', group: 'git', icon: 'search', description: 'Review a PR under REVIEW.md and against the spec and plan, then submit.' },
-  { name: 'git-pr-comment', group: 'git', icon: 'message', description: 'General and inline comments, replies and addressing reviewer feedback.' },
-  { name: 'git-resolve-pr-conflicts', group: 'git', icon: 'git-merge', description: 'Sync a branch with its base and resolve merge conflicts on GitHub or Azure DevOps PRs.' },
-  { name: 'git-release-notes', group: 'git', icon: 'tag', description: 'Changelog, release notes, semver suggestion, tag and release.' },
-];
-
-export interface Agent {
-  name: string;
-  stage: string;
-  icon: IconName;
-  access: string;
-  description: string;
-}
-
-/** Focused helpers with limited tools. Installed for both assistants from one definition. */
-export const AGENTS: Agent[] = [
-  { name: 'intent-analyst', stage: 'Plan', icon: 'compass', access: 'read, search, edit', description: 'Interviews the originator and drafts intent.md.' },
-  { name: 'spec-author', stage: 'Design', icon: 'pencil', access: 'read, search, edit', description: 'Drafts spec.md under your policy skills and flags concerns.' },
-  { name: 'planner', stage: 'Build', icon: 'clipboard', access: 'read, search', description: 'Read-only. Proposes plan.md before any code is written.' },
-  { name: 'researcher', stage: 'Build', icon: 'search', access: 'read, search', description: 'Explores the codebase and reports back without flooding context.' },
-  { name: 'code-simplifier', stage: 'Build', icon: 'code', access: 'read, search, edit, execute', description: 'Strips needless complexity from a finished change.' },
-  { name: 'verifier', stage: 'Test', icon: 'flask', access: 'read, execute', description: 'Runs the app and checks in a fresh context. Reports only.' },
-  { name: 'reviewer', stage: 'Deploy', icon: 'shield', access: 'read, search, execute', description: 'Layered review under REVIEW.md. Cannot edit or approve.' },
-  { name: 'release-coordinator', stage: 'Deploy', icon: 'cloud-upload', access: 'read, search, edit, execute', description: 'Prepares the release up to the production gate, never past it.' },
-  { name: 'incident-diagnostician', stage: 'Maintain', icon: 'wrench', access: 'read, search, execute', description: 'Diagnoses a breach and writes incident.md and a new intent.md.' },
-  { name: 'confidence-gate', stage: 'Maintain', icon: 'check', access: 'read, search, execute', description: 'Adversarial independent check between headless stages.' },
-];
+// Skills and agents come from the generated catalog (built from the skills and agents folders).
+export { CATALOG_AGENTS as AGENTS, CATALOG_SKILLS as SKILLS, CATALOG_STAGES as STAGES, CATALOG_ROLES as ROLES, CATALOG_CORE as CORE_SKILLS } from './catalog.generated';
+export type { CatalogAgent as Agent, CatalogSkill as Skill, CatalogStage as Stage, CatalogRole as Role } from './catalog.generated';
 
 export type InstallStatus = 'available' | 'planned';
 export interface InstallOption {

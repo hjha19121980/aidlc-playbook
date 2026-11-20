@@ -8,15 +8,16 @@ description: Review a pull request for correctness, security, tests, and require
 ## Steps
 1. Fetch context: `gh pr view <n> --json title,body,author,baseRefName,files,reviews` and `gh pr diff <n>`. For checks: `gh pr checks <n>`.
 2. Read the review policy `REVIEW.md` if present (passes, what counts as Important versus Nit, caps, exclusions) and follow it. Read the linked change folder (`docs/aidlc/changes/<id>/`: `intent.md`, `spec.md`, `plan.md`) and confirm the diff does what the plan intended and nothing outside it. Note when the change makes `AGENTS.md` outdated.
-3. If there is no `REVIEW.md`, review in this order, citing `file:line` for each finding:
+3. **Apply the coding standards.** Run the `code-review` skill on the PR diff: match the changed files to the documents in `docs/aidlc/standards/index.md`, read them, and cite the rule ID (for example `PY-007`) in each standards finding. Merge those findings with the rest of the review.
+4. If there is no `REVIEW.md`, also review in this order, citing `file:line` for each finding:
    1. **Correctness:** logic errors, edge cases, error handling, concurrency.
    2. **Security and privacy:** injection, authz, secrets, unsafe deserialization, personal or regulated data.
    3. **Tests:** coverage of new behavior and failure paths.
    4. **Design and maintainability:** naming, duplication, scope creep.
    5. **Docs and operability:** README, config, logging, migrations.
-4. Tag each finding with its pass and classify it as `Important` (breaks behavior, leaks data, breaches policy) or `Nit`. Only report issues you can justify; no speculation. Findings never approve or block on their own.
-5. Present a summary to the user: verdict (approve / request changes / comment), then findings ranked by severity.
-6. **Only after user confirmation**, submit:
+5. Tag each finding with its pass and classify it as `Important` (breaks behavior, leaks data, breaches policy) or `Nit`. Only report issues you can justify; no speculation. Findings never approve or block on their own.
+6. Present a summary to the user: verdict (approve / request changes / comment), then findings ranked by severity.
+7. **Only after user confirmation**, submit:
    - `gh pr review <n> --approve --body "<text>"`
    - `gh pr review <n> --request-changes --body-file <file>`
    - `gh pr review <n> --comment --body-file <file>`

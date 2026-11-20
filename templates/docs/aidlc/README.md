@@ -23,6 +23,7 @@ Skills and agents are available in both assistants; the same definitions are ins
 | Status tracker | `docs/aidlc/status.md` |
 | Project context for agents | `AGENTS.md` (repo root) |
 | Review policy | `REVIEW.md` (repo root) |
+| Coding standards (one per language) | `docs/aidlc/standards/` (start at `index.md`); the `code-review` skill and `reviewer` agent read them |
 | Policy skills (your rules) | `skills/<policy>/` in the assistant's skills folder; see `docs/aidlc/policies/README.md` |
 | Guard checks and CI templates | `docs/aidlc/guards/`, `docs/aidlc/templates/ci/` |
 | Monitoring tiers | `docs/aidlc/monitoring/bands.yaml` |

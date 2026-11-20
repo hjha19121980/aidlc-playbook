@@ -1,7 +1,10 @@
 # Review instructions
 
+## Coding standards
+Language standards are in `docs/aidlc/standards/` (see `index.md`). Reviewers load the documents that match the changed files and cite the rule ID in each standards finding. Local overrides inside a document win over the baseline.
+
 ## Passes
-Run three passes and tag each finding with its pass:
+Run these passes and tag each finding with its pass (the **Standards** pass cites rule IDs):
 - **Bugs:** logic errors, broken edge cases, subtle regressions.
 - **Security:** injection risks, authentication gaps, secrets or personal data in logs.
 - **Compliance:** the change matches `spec.md`, `plan.md`, and our design principles, and does nothing outside the plan.

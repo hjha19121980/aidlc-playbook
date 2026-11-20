@@ -125,6 +125,26 @@ export class DocsPage {
       code: { label: 'What gets installed', text: '.claude/skills/ and .claude/agents/     terminal AI agent skills and agents\n.github/skills/ and .github/agents/     Copilot skills and agents\n.github/prompts/                        Copilot slash commands\nAGENTS.md                               project context for every agent\nREVIEW.md                               review policy\ndocs/aidlc/                             README, status, templates, guards, monitoring, policies\nevals/                                  regression tests for agent configuration\n.mcp.json and .vscode/mcp.json          connector (MCP) configuration, created only if missing' },
     },
     {
+      id: 'standards',
+      title: 'Coding standards and code review',
+      paragraphs: [
+        'The installer adds a coding standard for each language to docs/aidlc/standards: Java, Spring Boot, Kotlin, Python, TypeScript, JavaScript, Angular, React, Go, Ruby, COBOL, Dart and Flutter, SQL, C++, C#, R and PHP. Each document has numbered rules (for example JAVA-005) with a default severity of Important or Nit.',
+        'The code-review skill and the reviewer agent read docs/aidlc/standards/index.md, match the changed files to the right documents (a Spring Boot change also loads the Java document), and cite the rule ID in every standards finding. The PR review skill uses the same procedure.',
+        'The documents are a baseline from general industry practice. Have a language owner review each one, record your team rules under "Local overrides", and approve changes in a pull request. To add a language, copy _template.md and add a row to index.md. The installer never overwrites a standards file you already have.',
+      ],
+      code: { label: 'Example finding', text: 'JAVA-005 (Important)  OrderService.java:88\nCatching Exception hides failures. Catch the specific exception and log with context or rethrow.' },
+    },
+    {
+      id: 'roles',
+      title: 'Install only what your role needs',
+      paragraphs: [
+        'You do not need every skill. On the Installation or Get Started page, pick a role to start: business analyst, architect, developer, tester, DevOps and release, or support and operations. Then tick or untick groups and individual skills. The page shows the count and writes the matching command.',
+        'The orchestrator skill (aidlc-workflow) is always installed because it tracks each change through the stages. Agents are chosen for you from the stages you pick. You can run the installer again later to add more skills; skills you already have are updated and your own files are kept.',
+        'The installer accepts the lists directly, which is useful for scripts and onboarding. Without these options it installs everything.',
+      ],
+      code: { label: 'Examples', text: '# macOS or Linux\nbash install.sh --target ~/my-project --skills grounded-research,generate-meeting-minutes,jira-to-markdown --agents intent-analyst\n\n# Windows\n.\\install.ps1 -Target C:\\work\\my-project -Skills \'grounded-research,generate-meeting-minutes\' -Agents \'intent-analyst\'' },
+    },
+    {
       id: 'assistants',
       title: 'Using skills in each assistant',
       paragraphs: [
@@ -269,6 +289,11 @@ export class DocsPage {
           problem: '"Checksum mismatch ... Nothing was installed"',
           cause: 'The download was changed or cut short, a cache or proxy served a stale or altered file, or the site was updated mid-download.',
           fix: 'Do not use that file. Run the installer again. If it persists, report it to the maintainers with the message, because it can indicate tampering.',
+        },
+        {
+          problem: 'A skill I picked is missing after install (or I got more than I picked)',
+          cause: 'A skill name was misspelled in the command, or the folder was reused from an earlier full install.',
+          fix: 'Names must match exactly (see the Skills page). Copy the command from the picker instead of typing it. The installer adds and updates files but never deletes skills from an earlier install, so remove unwanted skill folders by hand.',
         },
         {
           problem: 'I want to update the skills later',

@@ -9,7 +9,8 @@ Prerequisite: the tech lead who owns review standards.
 
 ## Steps
 1. If `REVIEW.md` is missing, start from `docs/aidlc/templates/REVIEW.md` at the repo root.
-2. Define the **passes** the organization cares about and tag every finding with its pass: bugs and logic errors; security and vulnerabilities; compliance with `spec.md`, `plan.md`, and design principles.
+2. Define the **passes** the organization cares about and tag every finding with its pass: coding standards (cite the rule ID from `docs/aidlc/standards/`); bugs and logic errors; security and vulnerabilities; compliance with `spec.md`, `plan.md`, and design principles.
+   - **Coding standards:** one document per language in `docs/aidlc/standards/`, listed in `index.md`. The `code-review` skill and the `reviewer` agent read them. Language owners review the baseline, record local overrides in each document, and approve changes in pull requests. Add a language by copying `_template.md`.
 3. Define **Important** (would break behavior, leak data, or breach a policy) versus **Nit** (style, naming).
 4. **Cap Nits** (for example five per review; summarize the rest as a count).
 5. List what **not to report**: generated paths and anything CI already enforces.
