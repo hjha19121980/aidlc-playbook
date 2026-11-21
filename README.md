@@ -19,6 +19,10 @@ The chain of commits is the audit trail: who asked for what, what the agent prod
 | Deploy | `aidlc-deploy` | review findings, `release.md` | Release manager authorizes production |
 | Maintain | `aidlc-maintain` | `incident.md`, new `intent.md` | Service owner triages |
 
+## Documentation
+- **[docs/GUIDE.md](docs/GUIDE.md):** what the orchestrator, skills, agents, standards, connectors, templates, installers and scripts are for, how a conversation starts, and what is enforced versus advice. Start here.
+- **[docs/REFERENCE.md](docs/REFERENCE.md):** every skill and agent with what it does and produces, plus the role presets. Generated; refresh with `node scripts/generate-reference.mjs`.
+
 ## The loop at a glance
 ![The AIDLC loop: Plan, Design, Build, Test, Deploy and Maintain in a circle, each stage committing an artifact and ending at a human gate](docs/diagrams/aidlc-loop.svg)
 
@@ -44,6 +48,7 @@ agents/        Source of truth: one markdown file per agent (tool-neutral)
 mcp/           Source of truth: one JSON per connector (Git, Figma, Jira, Confluence, plus a company template)
 standards/     Source of truth: one coding standard per language, read by code review (installed to docs/aidlc/standards)
 catalog/       catalog.json: which group each skill and agent belongs to, and the role presets
+docs/          GUIDE.md (concepts and communication), REFERENCE.md (generated), diagrams/
 templates/     Files installed into projects: docs/aidlc/*, AGENTS.md, REVIEW.md, evals/
 installers/    install.ps1 (Windows) and install.sh (macOS, Linux)
 scripts/       sync-skills.mjs, build-downloads.mjs, image generators
