@@ -58,17 +58,17 @@ Edit only `skills/`, `agents/`, `mcp/`, `standards/`, `catalog/` and `templates/
 
 Why a separate `skills/` folder? Each assistant requires its skills in its own folder, so a neutral source is the only way to maintain one copy and still serve both. It is a build input, not something users install.
 
-## Skills (77)
+## Skills (91)
 Every skill belongs to one group in [catalog/catalog.json](catalog/catalog.json). The website filters, the role presets, and the installer all read that file, and the build fails if a skill is missing from it.
 
 | Group | Skills |
 |---|---|
-| **Plan (12)** | `aidlc-plan`, `grounded-research`, `generate-meeting-minutes`, `jira-to-markdown`, `confluence-to-markdown`, `stakeholder-analysis`, `user-stories-and-acceptance-criteria`, `requirements-gap-analysis`, `backlog-prioritization`, `estimation-and-planning`, `risk-assessment`, `business-case` |
-| **Design (9)** | `aidlc-design`, `solution-architecture`, `architecture-decision-record`, `api-design`, `data-modeling`, `threat-modeling`, `ui-ux-spec`, `nfr-capacity-planning`, `design-review` |
-| **Build (15)** | `aidlc-build`, `cobol-development`, `cobol-legacy-analysis`, `aidlc-analysis`, `analyze-repository`, `impact-analysis`, `knowledge-index`, `knowledge-graph`, `dependency-analysis`, `tech-debt-assessment`, `refactoring`, `api-implementation`, `database-migration`, `code-documentation`, `dependency-upgrade` |
-| **Test (10)** | `aidlc-test`, `test-strategy`, `unit-test-generation`, `e2e-test-authoring`, `performance-test`, `security-scan-review`, `accessibility-audit`, `test-data-generation`, `defect-triage`, `coverage-gap-analysis` |
-| **Deploy (8)** | `aidlc-deploy`, `code-review`, `ci-cd-pipeline`, `infrastructure-as-code`, `containerization`, `change-request`, `release-readiness-review`, `feature-flag-rollout` |
-| **Maintain (9)** | `aidlc-maintain`, `incident-response`, `root-cause-analysis`, `runbook-authoring`, `observability-setup`, `slo-definition`, `vulnerability-triage`, `support-ticket-triage`, `cost-optimization` |
+| **Plan (14)** | `aidlc-plan`, `grounded-research`, `generate-meeting-minutes`, `jira-to-markdown`, `confluence-to-markdown`, `stakeholder-analysis`, `user-stories-and-acceptance-criteria`, `requirements-gap-analysis`, `backlog-prioritization`, `estimation-and-planning`, `risk-assessment`, `business-case`, `compliance-and-privacy-review`, `ai-feature-spec` |
+| **Design (11)** | `aidlc-design`, `solution-architecture`, `architecture-decision-record`, `api-design`, `data-modeling`, `threat-modeling`, `ui-ux-spec`, `nfr-capacity-planning`, `design-review`, `integration-design`, `platform-design` |
+| **Build (19)** | `aidlc-build`, `cobol-development`, `cobol-legacy-analysis`, `aidlc-analysis`, `analyze-repository`, `impact-analysis`, `knowledge-index`, `knowledge-graph`, `dependency-analysis`, `tech-debt-assessment`, `refactoring`, `api-implementation`, `database-migration`, `code-documentation`, `dependency-upgrade`, `legacy-modernization`, `framework-upgrade`, `secrets-and-config-management`, `knowledge-handoff-and-onboarding` |
+| **Test (12)** | `aidlc-test`, `test-strategy`, `unit-test-generation`, `e2e-test-authoring`, `performance-test`, `security-scan-review`, `accessibility-audit`, `test-data-generation`, `defect-triage`, `coverage-gap-analysis`, `contract-testing`, `mutation-testing` |
+| **Deploy (10)** | `aidlc-deploy`, `code-review`, `ci-cd-pipeline`, `infrastructure-as-code`, `containerization`, `change-request`, `release-readiness-review`, `feature-flag-rollout`, `rollback-and-disaster-recovery`, `sbom-and-license-compliance` |
+| **Maintain (11)** | `aidlc-maintain`, `incident-response`, `root-cause-analysis`, `runbook-authoring`, `observability-setup`, `slo-definition`, `vulnerability-triage`, `support-ticket-triage`, `cost-optimization`, `postmortem-and-lessons-learned`, `data-quality-and-pipeline-ops` |
 | **Git and GitHub (6)** | `git-commit`, `git-create-pr`, `git-review-pr`, `git-pr-comment`, `git-resolve-pr-conflicts`, `git-release-notes` |
 | **Foundations (8)** | `aidlc-workflow` (orchestrator, always installed), `aidlc-project-context`, `aidlc-policy-skill`, `aidlc-review-policy`, `aidlc-guardrails`, `aidlc-evals`, `aidlc-metrics`, `aidlc-connectors` |
 
@@ -101,8 +101,8 @@ install.ps1  -Skills 'grounded-research,generate-meeting-minutes' -Agents 'inten
 
 **COBOL and the mainframe.** `cobol.md` covers layout, data and arithmetic, file and SQL status checks, copybooks, JCL, security, and testing. The `cobol-development` skill changes programs, copybooks, and JCL to that standard, and `cobol-legacy-analysis` maps an existing estate (call graph, data flow, business rules). The *Mainframe developer* role installs both plus code review, impact analysis, and Git.
 
-## Agents (10)
-`intent-analyst`, `spec-author`, `planner` (read-only), `researcher` (read-only), `code-simplifier`, `verifier` (reports only), `reviewer` (cannot edit or approve), `release-coordinator` (stops at the production gate), `incident-diagnostician`, `confidence-gate`.
+## Agents (12)
+`intent-analyst`, `spec-author`, `planner` (read-only), `researcher` (read-only), `code-simplifier`, `verifier` (reports only), `reviewer` (cannot edit or approve), `release-coordinator` (stops at the production gate), `incident-diagnostician`, `confidence-gate`, `security-reviewer` (cannot edit or approve), `documentation-agent` (edits documentation only).
 
 Agent definitions use neutral capabilities (`read`, `search`, `edit`, `execute`) that the generator maps to each assistant's own tool names.
 

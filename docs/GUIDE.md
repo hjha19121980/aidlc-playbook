@@ -66,7 +66,7 @@ The orchestrator is a **skill**, not a running program. It is the one that answe
 It **recommends** the next skill; it does not run the whole life cycle on its own. A person (or a script you add) starts each next step.
 
 ### 3.2 Skills
-A skill is a Markdown file (`SKILL.md`) with a short description of *when to use it* and numbered steps for *what to do*. The assistant loads it when it matches the request or when the person types its name as a slash command. There are 77, in these kinds:
+A skill is a Markdown file (`SKILL.md`) with a short description of *when to use it* and numbered steps for *what to do*. The assistant loads it when it matches the request or when the person types its name as a slash command. There are 91, in these kinds:
 
 | Kind | Purpose | Examples |
 |---|---|---|
@@ -198,7 +198,7 @@ If a rule must hold every time, put it in branch protection or CI, not only in a
 
 ```
 aidlc-playbook/
-  skills/       77 skills. One folder each with SKILL.md. SOURCE OF TRUTH.
+  skills/       91 skills. One folder each with SKILL.md. SOURCE OF TRUTH.
   agents/       10 agent definitions (neutral tool capabilities). SOURCE OF TRUTH.
   standards/    Coding standard per language + index.md + _template.md. SOURCE OF TRUTH.
   mcp/          Connector definitions (servers/*.json) + README. SOURCE OF TRUTH.
@@ -284,7 +284,7 @@ user opens the project in the assistant and types /aidlc-workflow
 
 **Can I run any skill at any time?** Yes. Stage order is guidance, enforced by the orchestrator's tracking, human gates, and any CI checks you enable. Overrides are recorded.
 
-**Do I need all 77 skills?** No. Pick a role or tick individual skills on the Installation page. The orchestrator is always included.
+**Do I need all 91 skills?** No. Pick a role or tick individual skills on the Installation page. The orchestrator is always included.
 
 **How do I add a skill?** Create `skills/<name>/SKILL.md`, add one line to `catalog/catalog.json`, run `node scripts/build-downloads.mjs` and `node scripts/generate-reference.mjs`.
 

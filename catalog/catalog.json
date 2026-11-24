@@ -479,6 +479,48 @@
     "cobol-legacy-analysis": {
       "stage": "build",
       "icon": "search"
+    },
+    "compliance-and-privacy-review": {
+      "stage": "plan"
+    },
+    "ai-feature-spec": {
+      "stage": "plan"
+    },
+    "integration-design": {
+      "stage": "design"
+    },
+    "platform-design": {
+      "stage": "design"
+    },
+    "legacy-modernization": {
+      "stage": "build"
+    },
+    "framework-upgrade": {
+      "stage": "build"
+    },
+    "secrets-and-config-management": {
+      "stage": "build"
+    },
+    "knowledge-handoff-and-onboarding": {
+      "stage": "build"
+    },
+    "contract-testing": {
+      "stage": "test"
+    },
+    "mutation-testing": {
+      "stage": "test"
+    },
+    "rollback-and-disaster-recovery": {
+      "stage": "deploy"
+    },
+    "sbom-and-license-compliance": {
+      "stage": "deploy"
+    },
+    "postmortem-and-lessons-learned": {
+      "stage": "maintain"
+    },
+    "data-quality-and-pipeline-ops": {
+      "stage": "maintain"
     }
   },
   "agents": {
@@ -521,6 +563,14 @@
     "confidence-gate": {
       "stage": "maintain",
       "icon": "check"
+    },
+    "security-reviewer": {
+      "stage": "deploy",
+      "icon": "shield"
+    },
+    "documentation-agent": {
+      "stage": "build",
+      "icon": "code"
     }
   }
 }
